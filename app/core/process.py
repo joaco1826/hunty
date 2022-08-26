@@ -1,5 +1,5 @@
 from app.core.constants import NOT_FOUND
-from app.core.queryset import CompanyQuerySet, VacancyQuerySet
+from app.core.queryset import CompanyQuerySet, VacancyQuerySet, UserQuerySet
 
 
 class CompanyProcess:
@@ -119,4 +119,64 @@ class VacancyProcess:
         return {
             "status": 204,
             "message": "Vacancy deleted successfully!"
+        }
+
+
+class UserProcess:
+    @staticmethod
+    def create(data: dict):
+        user = UserQuerySet.create(data)
+        return {
+            "status": 201,
+            "message": "User created successfully!",
+            "data": user
+        }
+
+    @staticmethod
+    def list():
+        users = UserQuerySet.list()
+        return {
+            "status": 200,
+            "message": "List vacancies successfully!",
+            "data": users
+        }
+
+    @staticmethod
+    def get(uuid: str):
+        user = UserQuerySet.get(uuid)
+
+        if user:
+            return {
+                "status": 200,
+                "message": "Get user successfully!",
+                "data": user
+            }
+
+        return {
+            "status": 404,
+            "message": NOT_FOUND
+        }
+
+    @staticmethod
+    def update(uuid: str, data: dict):
+        user = UserQuerySet.update(uuid, data)
+
+        if user:
+            return {
+                "status": 200,
+                "message": "User updated successfully!",
+                "data": user
+            }
+
+        return {
+            "status": 404,
+            "message": NOT_FOUND
+        }
+
+    @staticmethod
+    def delete(uuid: str):
+        UserQuerySet.delete(uuid)
+        return {
+            "status": 204,
+            "message": "User deleted successfully!"
         }

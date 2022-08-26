@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, EmailStr
 from typing import Optional
 
 
@@ -15,7 +15,7 @@ class ContactSerializer(BaseModel):
         description="Phone number of contact of the company",
         title="Phone Number"
     )
-    email: str = Field(
+    email: EmailStr = Field(
         description="Email of contact of the company",
         title="Email"
     )

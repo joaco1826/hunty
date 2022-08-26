@@ -141,6 +141,20 @@ class Vacancy(Document, TimeStamps):
         ]
     }
 
+    def to_json(self, *args, **kwargs):
+        return {
+            "uuid": self.uuid,
+            "position_name": self.position_name,
+            "link": self.link,
+            "salary": self.salary,
+            "min_experience": self.min_experience,
+            "max_experience": self.max_experience,
+            "skills": self.skills,
+            "company": self.company.to_json(),
+            "created_at": str(self.created_at),
+            "updated_at": str(self.updated_at)
+        }
+
 
 class PreviousExperience(EmbeddedDocument):
     company = StringField(
@@ -155,6 +169,14 @@ class PreviousExperience(EmbeddedDocument):
     end_date = DateField(
         required=True
     )
+
+    def to_json(self, *args, **kwargs):
+        return {
+            "company": self.company,
+            "position_name": self.position_name,
+            "start_date": self.start_date,
+            "end_date": self.end_date
+        }
 
 
 class User(Document, TimeStamps):
@@ -185,3 +207,27 @@ class User(Document, TimeStamps):
         ),
         required=True
     )
+
+    meta = {
+        "collection": "users",
+        "indexes": [
+            "uuid",
+            "email"
+        ]
+    }
+
+    def to_json(self, *args, **kwargs):
+        return {
+            "uuid": self.uuid,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "email": self.email,
+            "years_experience": self.years_experience,
+            "skills": self.skills,
+            "previous_experience": [
+                experience.to_json()
+                for experience in self.previous_experience
+            ],
+            "created_at": str(self.created_at),
+            "updated_at": str(self.updated_at)
+        }

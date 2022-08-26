@@ -1,24 +1,4 @@
 from pydantic import BaseModel, Field
-from typing import Optional
-
-
-class ContactSerializer(BaseModel):
-    first_name: str = Field(
-        description="First name of contact of the company",
-        title="First Name"
-    )
-    last_name: str = Field(
-        description="Last name of contact of the company",
-        title="Last Name"
-    )
-    phone_number: str = Field(
-        description="Phone number of contact of the company",
-        title="Phone Number"
-    )
-    email: str = Field(
-        description="Email of contact of the company",
-        title="Email"
-    )
 
 
 class CreateOrUpdateVacancySerializer(BaseModel):

@@ -1,5 +1,5 @@
 from app.core.helpers import GeneralHelpers
-from app.core.models import Company, Vacancy
+from app.core.models import Company, Vacancy, User
 
 
 class CompanyQuerySet:
@@ -93,4 +93,51 @@ class VacancyQuerySet:
         if vacancy:
             vacancy.deleted_at = GeneralHelpers.get_datetime()
             vacancy.save()
+        return None
+
+
+class UserQuerySet:
+    @staticmethod
+    def create(data: dict):
+        register = User(**data).save()
+        return register.to_json()
+
+    @staticmethod
+    def list():
+        users = User.objects(deleted_at=None).all()
+        return [user.to_json() for user in users]
+
+    @staticmethod
+    def get(uuid: str):
+        user = User.objects(
+            uuid=uuid,
+            deleted_at=None
+        ).first()
+
+        if user:
+            return user.to_json()
+        return None
+
+    @staticmethod
+    def update(uuid: str, data: dict):
+        user = User.objects(
+            uuid=uuid,
+            deleted_at=None
+        ).first()
+
+        if user:
+            user.modify(**data)
+            return user.to_json()
+
+        return None
+
+    @staticmethod
+    def delete(uuid: str):
+        user = User.objects(
+            uuid=uuid,
+            deleted_at=None
+        ).first()
+        if user:
+            user.deleted_at = GeneralHelpers.get_datetime()
+            user.save()
         return None

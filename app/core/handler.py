@@ -1,4 +1,8 @@
-from app.core.process import CompanyProcess, VacancyProcess
+from app.core.process import (
+    CompanyProcess,
+    VacancyProcess,
+    UserProcess
+)
 
 
 class CompanyHandler:
@@ -43,3 +47,25 @@ class VacancyHandler:
     @staticmethod
     def delete(uuid: str):
         return VacancyProcess.delete(uuid)
+
+
+class UserHandler:
+    @staticmethod
+    def create(data: dict):
+        return UserProcess.create(data)
+
+    @staticmethod
+    def list():
+        return UserProcess.list()
+
+    @staticmethod
+    def get(uuid: str):
+        return UserProcess.get(uuid)
+
+    @staticmethod
+    def update(uuid: str, data: dict):
+        return UserProcess.update(uuid, data)
+
+    @staticmethod
+    def delete(uuid: str):
+        return UserProcess.delete(uuid)
