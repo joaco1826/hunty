@@ -66,6 +66,11 @@ class VacancyProcess:
     @staticmethod
     def create(data: dict):
         vacancy = VacancyQuerySet.create(data)
+        if vacancy.get("error"):
+            return {
+                "status": 400,
+                "message": vacancy.get("error")
+            }
         return {
             "status": 201,
             "message": "Vacancy created successfully!",

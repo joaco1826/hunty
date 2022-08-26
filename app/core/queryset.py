@@ -53,6 +53,10 @@ class VacancyQuerySet:
     @staticmethod
     def create(data: dict):
         company = Company.objects(uuid=data.pop("company_uuid")).first()
+        if not company:
+            return {
+                "error": "Company no exists!"
+            }
         data["company"] = company
         register = Vacancy(**data).save()
         return register.to_json()
@@ -81,6 +85,9 @@ class VacancyQuerySet:
         ).first()
 
         if vacancy:
+            company = Company.objects(uuid=data.pop("company_uuid")).first()
+            if company:
+                data["company"] = company
             vacancy.modify(**data)
             return vacancy.to_json()
 
