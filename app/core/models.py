@@ -85,6 +85,23 @@ class Company(Document, TimeStamps):
         ]
     }
 
+    def to_json(self, *args, **kwargs):
+        return {
+            "uuid": self.uuid,
+            "name": self.name,
+            "link": self.link,
+            "country": self.country,
+            "city": self.city,
+            "contact": {
+                "first_name": self.contact.first_name,
+                "last_name": self.contact.last_name,
+                "phone_number": self.contact.phone_number,
+                "email": self.contact.email
+            },
+            "created_at": str(self.created_at),
+            "updated_at": str(self.updated_at)
+        }
+
 
 class Vacancy(Document, TimeStamps):
     uuid = StringField(

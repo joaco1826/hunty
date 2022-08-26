@@ -1,7 +1,7 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from config import urls
+from config import routers
 from config.settings.base import API_VERSION, connect_db, close_db
 from config.settings.exceptions_handlers import internal_server_exception_handler
 
@@ -9,7 +9,7 @@ itemsInit = {}
 
 app = FastAPI(
     title="Hunty",
-    description="Hunty test ",
+    description="Hunty service ",
     version=API_VERSION,
     redoc_url="/api/v1/redoc",
     docs_url='/api/v1/docs',
@@ -26,7 +26,7 @@ app.add_middleware(
 )
 
 app.include_router(
-    urls.urls
+    routers.urls
 )
 
 app.add_event_handler(
