@@ -6,15 +6,23 @@
 -   Container: Docker
 
 
-# Installation for Ubuntu 20.04
+## Dependencies
 
-Install docker
+- Mongo
+- Docker
 
-Documentation for install docker [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
+## Installation Mongo
 
-Install docker-compose for development
+[Documentation](https://www.mongodb.com/docs/manual/installation/)
 
-Documentation for install docker-compose [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)
+
+### Installation docker
+
+Documentation for install docker [here](https://docs.docker.com/engine/install/)
+
+### Install docker-compose for development
+
+Documentation for install docker-compose [here](https://docs.docker.com/compose/install/)
 
 Copy .env.example to .env
 ```
