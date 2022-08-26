@@ -1,9 +1,11 @@
 FROM python:3.9.13-alpine
 WORKDIR /www
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 COPY . /www
-USER 0
+
 RUN pip3.9 install -r requirements.txt
 
-USER 1001
-
-CMD ["uvicorn", "config.settings:app --host=localhost --port=8001 --reload --log-level=info"]
+CMD ["uvicorn", "config.settings:app", "--host", "0.0.0.0", "--port", "8001", "--reload", "--log-level", "info"]
