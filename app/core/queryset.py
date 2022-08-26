@@ -52,6 +52,8 @@ class CompanyQuerySet:
 class VacancyQuerySet:
     @staticmethod
     def create(data: dict):
+        company = Company.objects(uuid=data.pop("company_uuid")).first()
+        data["company"] = company
         register = Vacancy(**data).save()
         return register.to_json()
 
