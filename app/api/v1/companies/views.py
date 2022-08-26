@@ -4,9 +4,11 @@ from sentry_sdk import capture_exception
 from starlette import status
 from starlette.responses import JSONResponse
 
+from app.api.v1.companies.serializers import CreateOrUpdateCompanySerializer
 from app.api.v1.serializers import (
-    CreateOrUpdateCompanySerializer,
-    ResponseSerializer, ResponseBadRequestSerializer, ResponseNotFoundSerializer
+    ResponseSerializer,
+    ResponseBadRequestSerializer,
+    ResponseNotFoundSerializer
 )
 from app.core.constants import INTERNAL_SERVER_ERROR
 from app.core.handler import CompanyHandler
