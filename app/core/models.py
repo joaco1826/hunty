@@ -32,6 +32,11 @@ class Skills(Enum):
     laravel = "laravel"
     mongo = "mongo"
     firebase = "firebase"
+    go = "go"
+    architect = "architect"
+    sql = "sql"
+    mysql = "mysql"
+    psql = "psql"
 
     @staticmethod
     def values() -> list:

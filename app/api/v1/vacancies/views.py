@@ -1,3 +1,5 @@
+import uuid
+
 from fastapi import APIRouter
 from mongoengine import ValidationError
 from sentry_sdk import capture_exception
@@ -30,6 +32,37 @@ async def list_vacancies() -> JSONResponse:
     """
     try:
         response = VacancyHandler.list()
+        return JSONResponse(
+            content=response,
+            status_code=response.get("status")
+        )
+    except Exception as e:
+        capture_exception(e)
+        response = {
+            "message": INTERNAL_SERVER_ERROR
+        }
+        return JSONResponse(
+            content=response,
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+
+@router.get(
+    "/vacancies/users/{user_uuid}",
+    responses={
+        "200": {"model": ResponseSerializer}
+    },
+    tags=["Vacancies"]
+)
+async def list_vacancies_by_user(
+        user_uuid: str
+) -> JSONResponse:
+    """
+    List vacancies
+    :return:
+    """
+    try:
+        response = VacancyHandler.list_by_user(user_uuid)
         return JSONResponse(
             content=response,
             status_code=response.get("status")

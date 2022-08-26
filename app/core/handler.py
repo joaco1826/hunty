@@ -37,6 +37,10 @@ class VacancyHandler:
         return VacancyProcess.list()
 
     @staticmethod
+    def list_by_user(user_uuid: str):
+        return VacancyProcess.list_by_user(user_uuid)
+
+    @staticmethod
     def get(uuid: str):
         return VacancyProcess.get(uuid)
 

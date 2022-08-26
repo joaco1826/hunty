@@ -87,6 +87,29 @@ class VacancyProcess:
         }
 
     @staticmethod
+    def list_by_user(user_uuid: str):
+        user = UserQuerySet.get(user_uuid)
+        if not user:
+            return {
+                "status": 404,
+                "message": "User not found"
+            }
+
+        vacancies = VacancyQuerySet.list_by_user(
+            user.get("skills", []),
+            user.get("years_experience", 0)
+        )
+
+        return {
+            "status": 200,
+            "message": "List vacancies successfully!",
+            "data": {
+                "user": user,
+                "vacancies": vacancies
+            }
+        }
+
+    @staticmethod
     def get(uuid: str):
         vacancy = VacancyQuerySet.get(uuid)
 

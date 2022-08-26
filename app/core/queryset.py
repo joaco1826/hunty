@@ -67,6 +67,15 @@ class VacancyQuerySet:
         return [vacancy.to_json() for vacancy in vacancies]
 
     @staticmethod
+    def list_by_user(skills: list, years_experience: int):
+        vacancies = Vacancy.objects(
+            skills__in=skills,
+            min_experience__lte=years_experience,
+            deleted_at=None
+        ).all()
+        return [vacancy.to_json() for vacancy in vacancies]
+
+    @staticmethod
     def get(uuid: str):
         vacancy = Vacancy.objects(
             uuid=uuid,
