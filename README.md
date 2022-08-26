@@ -70,5 +70,11 @@ $ uvicorn config.settings:app --host=localhost --port=8001 --reload --log-level=
 ```
 
 
-3. Status services
-    /health
+3. Status services [health](https://0.0.0.0:8001/health)
+
+
+4. Documentation
+[here](https://0.0.0.0:8001/docs)
+
+
+5. Author: Joaquin Forero
