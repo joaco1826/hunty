@@ -32,6 +32,10 @@ class CreateOrUpdateUserSerializer(BaseModel):
         description="Last name of user",
         title="Last Name"
     )
+    identification: str = Field(
+        description="Identification of user",
+        title="Identification"
+    )
     email: EmailStr = Field(
         description="Email of user",
         title="Email"
