@@ -11,8 +11,8 @@ app = FastAPI(
     title="Hunty",
     description="Hunty service ",
     version=API_VERSION,
-    redoc_url="/api/v1/redoc",
-    docs_url='/api/v1/docs',
+    redoc_url="/redoc",
+    docs_url='/docs',
 )
 
 origins = ["*"]

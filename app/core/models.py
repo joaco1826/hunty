@@ -119,7 +119,7 @@ class Vacancy(Document, TimeStamps):
     max_experience = IntField(
         required=True
     )
-    vacancy_link = StringField(
+    link = StringField(
         required=True
     )
     company = ReferenceField(
