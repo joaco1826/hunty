@@ -2,7 +2,14 @@ from unittest import TestCase
 
 from mongoengine import connect, disconnect
 
-from ..models import Company, Vacancy, User, Skills, Contact, PreviousExperience
+from ..models import (
+    Company,
+    Vacancy,
+    User,
+    Skills,
+    Contact,
+    PreviousExperience
+)
 
 
 class TestModel(TestCase):

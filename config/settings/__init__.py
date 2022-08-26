@@ -2,8 +2,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import routers
-from config.settings.base import API_VERSION, connect_db, close_db
-from config.settings.exceptions_handlers import internal_server_exception_handler
+from config.settings.base import (
+    API_VERSION,
+    connect_db,
+    close_db
+)
+from config.settings.exceptions_handlers import (
+    internal_server_exception_handler
+)
 
 itemsInit = {}
 

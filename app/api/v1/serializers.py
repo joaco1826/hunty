@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List, Optional, Dict, Any
-from uuid import UUID
+from typing import Optional, Any
 
 
 class MetaSerializer(BaseModel):
