@@ -161,7 +161,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"position_name\": \"Python Developer\",\n    \"company_uuid\": \"{{company_uuid}}\",\n    \"salary\": 2000000,\n    \"min_experience\": 1,\n    \"max_experience\": 5,\n    \"link\": \"https://hunty.com/\",\n    \"skills\": [\n        \"python\",\n        \"flask\",\n        \"mongo\",\n        \"gcp\"\n    ]\n}",
+							"raw": "{\n    \"position_name\": \"Python Developer Sr\",\n    \"company_uuid\": \"{{company_uuid}}\",\n    \"salary\": 2000000,\n    \"min_experience\": 1,\n    \"max_experience\": 8,\n    \"link\": \"https://hunty.com/\",\n    \"skills\": [\n        \"aws\",\n        \"flask\",\n        \"mongo\",\n        \"python\",\n        \"mvc\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -196,6 +196,27 @@
 								"api",
 								"v1",
 								"vacancies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/vacancies/users/{{user_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vacancies",
+								"users",
+								"{{user_uuid}}"
 							]
 						}
 					},
@@ -321,14 +342,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/v1/vacancies",
+							"raw": "{{host}}/api/v1/users",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"vacancies"
+								"users"
 							]
 						}
 					},
