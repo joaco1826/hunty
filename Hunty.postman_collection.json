@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "d3f7b194-7b59-420a-8892-a64b5b5822e6",
+		"name": "Hunty",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11345870"
+	},
+	"item": [
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"company_uuid\", jsonData.data.uuid);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Hunty\",\n  \"link\": \"https://hunty.com/\",\n  \"country\": \"Colombia\",\n  \"city\": \"Bogotá\",\n  \"contact\": {\n    \"first_name\": \"Joaquin\",\n    \"last_name\": \"Forero\",\n    \"phone_number\": \"3110002233\",\n    \"email\": \"user@example.com\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/companies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/companies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_uuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Hunty\",\n  \"link\": \"https://hunty.com/\",\n  \"country\": \"Colombia\",\n  \"city\": \"Bogotá\",\n  \"contact\": {\n    \"first_name\": \"Joaquin\",\n    \"last_name\": \"Forero\",\n    \"phone_number\": \"3110002233\",\n    \"email\": \"user@example.com\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_uuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_uuid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vacancies",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"vacancy_uuid\", jsonData.data.uuid);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"position_name\": \"Python Developer\",\n    \"company_uuid\": \"{{company_uuid}}\",\n    \"salary\": 2000000,\n    \"min_experience\": 1,\n    \"max_experience\": 5,\n    \"link\": \"https://hunty.com/\",\n    \"skills\": [\n        \"python\",\n        \"flask\",\n        \"mongo\",\n        \"gcp\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/vacancies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vacancies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/vacancies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vacancies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/vacancies/{{vacancy_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vacancies",
+								"{{vacancy_uuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"position_name\": \"Python Developer\",\n    \"company_uuid\": \"{{company_uuid}}\",\n    \"salary\": 2000000,\n    \"min_experience\": 1,\n    \"max_experience\": 5,\n    \"link\": \"https://hunty.com/\",\n    \"skills\": [\n        \"python\",\n        \"flask\",\n        \"mongo\",\n        \"gcp\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/vacancies/{{vacancy_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vacancies",
+								"{{vacancy_uuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/vacancies/{{vacancy_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vacancies",
+								"{{vacancy_uuid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"user_uuid\", jsonData.data.uuid);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Joaquin\",\n  \"last_name\": \"Forero\",\n  \"identification\": \"00110011\",\n  \"email\": \"user@example.com\",\n  \"years_experience\": 8,\n  \"skills\": [\n    \"python\",\n    \"flask\",\n    \"django\",\n    \"fast_api\",\n    \"aws\",\n    \"php\"\n  ],\n  \"previous_experience\": [\n    {\n      \"company\": \"Tangelo\",\n      \"position_name\": \"Squad Lead\",\n      \"start_date\": \"2020-05-04\",\n      \"end_date\": \"2022-08-26\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/vacancies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vacancies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{user_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{user_uuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Joaquin\",\n  \"last_name\": \"Forero\",\n  \"identification\": \"00110011\",\n  \"email\": \"user@example.com\",\n  \"years_experience\": 8,\n  \"skills\": [\n    \"python\",\n    \"flask\",\n    \"django\",\n    \"fast_api\",\n    \"aws\",\n    \"php\"\n  ],\n  \"previous_experience\": [\n    {\n      \"company\": \"Tangelo\",\n      \"position_name\": \"Squad Lead\",\n      \"start_date\": \"2020-05-04\",\n      \"end_date\": \"2022-08-26\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{user_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{user_uuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{user_uuid}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{user_uuid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
