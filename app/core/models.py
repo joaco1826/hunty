@@ -174,8 +174,8 @@ class PreviousExperience(EmbeddedDocument):
         return {
             "company": self.company,
             "position_name": self.position_name,
-            "start_date": self.start_date,
-            "end_date": self.end_date
+            "start_date": str(self.start_date),
+            "end_date": str(self.end_date)
         }
 
 
@@ -199,7 +199,8 @@ class User(Document, TimeStamps):
         required=True
     )
     previous_experience = ListField(
-        EmbeddedDocumentField(PreviousExperience)
+        EmbeddedDocumentField(PreviousExperience),
+        required=False
     )
     skills = ListField(
         StringField(
