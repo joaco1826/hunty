@@ -12,3 +12,23 @@ services:
       - .env
     volumes:
       - ./:/www
+    networks:
+      - backend
+
+  mongodb:
+    image: mongo:4.2.22
+    container_name: mongodb
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /home/barry/mongodb/database:/data/db
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    networks:
+      - backend
+
+networks:
+  backend:
+    name: backend_network
