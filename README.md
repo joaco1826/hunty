@@ -77,12 +77,17 @@ pip3 install -r requirements.txt
 $ uvicorn config.settings:app --host=localhost --port=8001 --reload --log-level=info
 ```
 
-
 3. Status services [health](https://0.0.0.0:8001/health)
 
 
 4. Documentation
 [here](https://0.0.0.0:8001/docs)
 
+5. Docker Hub
+```
+$ docker pull joaco1826/hunty-test:latest
+$ docker run --name hunty_app -p 8001:8001 -d joaco1826/hunty-test
+```
 
-5. Author: Joaquin Forero
+
+Author: Joaquin Forero - [LinkedIn](https://www.linkedin.com/in/joaquin-forero-olaciregui/)
