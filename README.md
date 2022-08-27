@@ -89,5 +89,9 @@ $ docker pull joaco1826/hunty-test:latest
 $ docker run --name hunty_app -p 8001:8001 -d joaco1826/hunty-test
 ```
 
+### Diagram
+
+![](Hunty_model.png)
+
 
 Author: Joaquin Forero - [LinkedIn](https://www.linkedin.com/in/joaquin-forero-olaciregui/)
