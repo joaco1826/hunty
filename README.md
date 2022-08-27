@@ -8,13 +8,7 @@
 
 ## Dependencies
 
-- Mongo
 - Docker
-
-## Installation Mongo
-
-[Documentation](https://www.mongodb.com/docs/manual/installation/)
-
 
 ### Installation docker
 
@@ -26,41 +20,41 @@ Documentation for install docker-compose [here](https://docs.docker.com/compose/
 
 Copy .env.example to .env
 ```
-cp .env.example .env
+$ cp .env.example .env
 ```
 
 **Env vars**
 
 ```
 APP_ENV=local
-PORT=8000
 SENTRY_DSN=
 
 # Connect Mongo
-MONGO_URI=
+MONGO_URI=mongodb://{your_ip}:27017/hunty
 ```
 
-**Run Server**
+**Run project locally docker-compose**
 ```
-docker-compose up --build
+$ git clone https://github.com/joaco1826/hunty.git
+$ docker-compose up --build
 ```
 
-# Instalation virtualenv
+# Installation virtualenv
 
 1.  Install Virtualenv and activate it
 
 ```
-virtualenv - p python3 venv
+$ python3 -m venv venv
 ```
 
 ```
-source venv/bin/activate
+$ source venv/bin/activate
 ```
 
 2.  Install requirements.txt
 
 ```
-pip3 install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 -   Libraries:
     - fastApi
@@ -72,7 +66,7 @@ pip3 install -r requirements.txt
     - spectree
     - uvicorn
 
-**run Server**
+**Run server**
 ```
 $ uvicorn config.settings:app --host=localhost --port=8001 --reload --log-level=info
 ```
@@ -86,7 +80,16 @@ $ uvicorn config.settings:app --host=localhost --port=8001 --reload --log-level=
 5. Docker Hub
 ```
 $ docker pull joaco1826/hunty-test:latest
-$ docker run --name hunty_app -p 8001:8001 -d joaco1826/hunty-test
+```
+
+6. Run docker app
+```
+$ docker run --name hunty_app --env-file .env -p 8001:8001 -d joaco1826/hunty-test
+```
+
+7. Run docker mongo
+```
+$ docker run -d -p 27017:27017 --name mongo-hunty mongo:4.2.2
 ```
 
 ### Diagram
