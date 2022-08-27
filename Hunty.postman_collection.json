@@ -28,7 +28,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Hunty\",\n  \"link\": \"https://hunty.com/\",\n  \"country\": \"Colombia\",\n  \"city\": \"Bogotá\",\n  \"contact\": {\n    \"first_name\": \"Joaquin\",\n    \"last_name\": \"Forero\",\n    \"phone_number\": \"3110002233\",\n    \"email\": \"user@example.com\"\n  }\n}",
+							"raw": "{\n  \"name\": \"{{name}}\",\n  \"link\": \"{{link}}\",\n  \"country\": \"{{country}}\",\n  \"city\": \"{{city}}\",\n  \"contact\": {\n    \"first_name\": \"{{contact.first_name}}\",\n    \"last_name\": \"{{contact.last_name}}\",\n    \"phone_number\": \"{{contact.phone_number}}\",\n    \"email\": \"{{contact.email}}\"\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -315,7 +315,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"first_name\": \"Joaquin\",\n  \"last_name\": \"Forero\",\n  \"identification\": \"00110011\",\n  \"email\": \"user@example.com\",\n  \"years_experience\": 8,\n  \"skills\": [\n    \"python\",\n    \"flask\",\n    \"django\",\n    \"fast_api\",\n    \"aws\",\n    \"php\"\n  ],\n  \"previous_experience\": [\n    {\n      \"company\": \"Tangelo\",\n      \"position_name\": \"Squad Lead\",\n      \"start_date\": \"2020-05-04\",\n      \"end_date\": \"2022-08-26\"\n    }\n  ]\n}",
+							"raw": "{\n  \"first_name\": \"{{first_name}}\",\n  \"last_name\": \"{{last_name}}\",\n  \"identification\": \"{{identification}}\",\n  \"email\": \"{{email}}\",\n  \"years_experience\": {{years_experience}},\n  \"skills\": [{{skills}}],\n  \"previous_experience\": [\n    {\n      \"company\": \"{{company}}\",\n      \"position_name\": \"{{position_name}}\",\n      \"start_date\": \"{{start_date}}\",\n      \"end_date\": \"{{end_date}}\"\n    }\n  ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
